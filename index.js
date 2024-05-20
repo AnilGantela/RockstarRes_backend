@@ -18,7 +18,7 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`server Started running at ${PORT}`);
 });
@@ -27,7 +27,7 @@ app.use("/vendor", vendorRoutes);
 app.use("/firm", firmRoutes);
 app.use("/products", productRoutes);
 app.use("/uploads", express.static("uploads"));
-app.use("/home", (req, res) => {
+app.use("/", (req, res) => {
   res.send("<h1>WELCOME to RockStarRestaurents</h1>");
 });
 app.post("/restaurents", (req, res) => {});
